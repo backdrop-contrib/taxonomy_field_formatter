@@ -1,1 +1,4 @@
 name = Taxonomy fields formatter
+description = Provides formatter to view taxonomy fields in nodes
+core = 7.x
+dependencies[] = taxonomy
