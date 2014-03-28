@@ -2,7 +2,7 @@
 -- SUMMARY --
 
 Module provides a new formatter for "taxonomy term reference"
-fields to view term fields into nodes (entities).
+fields to view taxonomy terms as rendered entities.
 
 -- REQUIREMENTS --
 
@@ -15,4 +15,4 @@ fields to view term fields into nodes (entities).
 -- CONFIGURATION --
 
 * Select "Entity" formatter for your taxonomy term reference field.
-* Configure view mode "Entity" for taxonomy vocabulary.
+* Configure the selected view mode for taxonomy vocabulary.
