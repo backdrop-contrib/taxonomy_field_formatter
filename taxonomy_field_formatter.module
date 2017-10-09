@@ -63,7 +63,7 @@ function taxonomy_field_formatter_field_formatter_settings_summary($field, $inst
     '#markup' => isset($entity_info['view modes'][$settings['view_mode']]['label']) ? $entity_info['view modes'][$settings['view_mode']]['label'] : $settings['view_mode'],
   );
 
-  return drupal_render($summary);
+  return backdrop_render($summary);
 }
 
 /**
@@ -77,7 +77,7 @@ function taxonomy_field_formatter_field_formatter_view($entity_type, $entity, $f
       if ($term = taxonomy_term_load($item['tid'])) {
         $build = taxonomy_term_view($term, $display['settings']['view_mode']);
         $element[$delta] = array(
-          '#markup' => drupal_render($build),
+          '#markup' => backdrop_render($build),
         );
       }
     }

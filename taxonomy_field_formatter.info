@@ -1,4 +1,5 @@
+type = module
 name = Taxonomy field formatter
 description = Provides formatter to view taxonomy as full entity.
-core = 7.x
+backdrop = 1.x
 dependencies[] = taxonomy
