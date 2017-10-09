@@ -26,7 +26,7 @@ function taxonomy_field_formatter_field_formatter_settings_form($field, $instanc
   $default_view_mode = $settings['view_mode'];
 
   $entity_info = entity_get_info('taxonomy_term');
-  $options = array('default' => t("default"));
+  $options = array('default' => t("Default"));
   foreach ($entity_info['view modes'] as $term_view_mode => $data) {
     $options[$term_view_mode] = $data['label'];
   }
@@ -46,13 +46,21 @@ function taxonomy_field_formatter_field_formatter_settings_form($field, $instanc
 function taxonomy_field_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
   $settings = $instance['display'][$view_mode]['settings'];
   $entity_info = entity_get_info('taxonomy_term');
-  $summary = array(
-    '#type' => 'item',
-    '#title' => t('Display mode'),
-    '#markup' => isset($entity_info['view modes'][$settings['view_mode']]['label']) ? $entity_info['view modes'][$settings['view_mode']]['label'] : $settings['view_mode'],
-  );
 
-  return backdrop_render($summary);
+  $summary = array();
+
+  if ($settings['view_mode'] == 'default') {
+    $view_mode_label = t("Default");
+  }
+  elseif (!empty($entity_info['view modes'][$settings['view_mode']]['label'])) {
+    $view_mode_label = $entity_info['view modes'][$settings['view_mode']]['label'];
+  }
+  else {
+    $view_mode_label = $settings['view_mode'];
+  }
+  $summary[] = t("Display mode: @view_mode", array('@view_mode' => $view_mode_label));
+
+  return implode('<br>', $summary);
 }
 
 /**
