@@ -41,8 +41,8 @@ function taxonomy_field_formatter_field_formatter_settings_form($field, $instanc
     $options[$term_view_mode] = $data['label'];
   }
   $element['view_mode'] = array(
-    '#title' => t('View mode'),
-    '#description' => t('The view mode in which to render the taxonomy term'),
+    '#title' => t('Display mode'),
+    '#description' => t('The display mode in which to render the taxonomy term'),
     '#type' => 'select',
     '#default_value' => isset($settings['view_mode']) ? $settings['view_mode'] : $default_view_mode,
     '#options' => $options,
@@ -58,7 +58,7 @@ function taxonomy_field_formatter_field_formatter_settings_summary($field, $inst
   $entity_info = entity_get_info('taxonomy_term');
   $summary = array(
     '#type' => 'item',
-    '#title' => t('View mode'),
+    '#title' => t('Display mode'),
     '#markup' => isset($entity_info['view modes'][$settings['view_mode']]['label']) ? $entity_info['view modes'][$settings['view_mode']]['label'] : $settings['view_mode'],
   );
 
