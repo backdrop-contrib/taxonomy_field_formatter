@@ -15,7 +15,7 @@ function taxonomy_field_formatter_update_1000() {
           foreach ($fields as $field_name => $field_instance) {
             if (!empty($field_instance['display'])) {
               foreach ($field_instance['display'] as $view_mode => $formatter) {
-                if ($formatter['module'] == 'taxonomy_field_formatter' && $formatter['type'] == 'taxonomy_term_entity') {
+                if (!empty($formatter['module']) && $formatter['module'] == 'taxonomy_field_formatter' && $formatter['type'] == 'taxonomy_term_entity') {
                   if ($formatter['settings']['view_mode'] == 'entity') {
 
                     $instance_info = field_info_instance($entity_type, $field_name, $bundle);
