@@ -6,17 +6,6 @@
  */
 
 /**
- * Implements hook_entity_info_alter().
- * @see taxonomy_entity_info()
- */
-function taxonomy_field_formatter_entity_info_alter(&$entity_info) {
-  $entity_info['taxonomy_term']['view modes']['entity'] = array(
-    'label' => t('Rendered entity'),
-    'custom settings' => TRUE,
-  );
-}
-
-/**
  * Implements hook_field_formatter_info().
  */
 function taxonomy_field_formatter_field_formatter_info() {
@@ -37,6 +26,7 @@ function taxonomy_field_formatter_field_formatter_settings_form($field, $instanc
   $default_view_mode = $settings['view_mode'];
 
   $entity_info = entity_get_info('taxonomy_term');
+  $options = array('default' => t("default"));
   foreach ($entity_info['view modes'] as $term_view_mode => $data) {
     $options[$term_view_mode] = $data['label'];
   }
