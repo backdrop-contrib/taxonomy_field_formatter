@@ -11,7 +11,7 @@
  */
 function taxonomy_field_formatter_entity_info_alter(&$entity_info) {
   $entity_info['taxonomy_term']['view modes']['entity'] = array(
-    'label' => t('Entity'),
+    'label' => t('Rendered entity'),
     'custom settings' => TRUE,
   );
 }
@@ -22,7 +22,7 @@ function taxonomy_field_formatter_entity_info_alter(&$entity_info) {
 function taxonomy_field_formatter_field_formatter_info() {
   return array(
     'taxonomy_term_entity' => array(
-      'label' => t('Entity'),
+      'label' => t('Rendered entity'),
       'field types' => array('taxonomy_term_reference'),
       'settings' => array('view_mode' => 'entity'),
     ),
