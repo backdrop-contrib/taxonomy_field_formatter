@@ -74,10 +74,7 @@ function taxonomy_field_formatter_field_formatter_view($entity_type, $entity, $f
   if ($display['type'] == 'taxonomy_term_entity') {
     foreach ($items as $delta => $item) {
       if ($term = taxonomy_term_load($item['tid'])) {
-        $build = taxonomy_term_view($term, $display['settings']['view_mode']);
-        $element[$delta] = array(
-          '#markup' => backdrop_render($build),
-        );
+        $element[$delta] = taxonomy_term_view($term, $display['settings']['view_mode']);
       }
     }
   }
