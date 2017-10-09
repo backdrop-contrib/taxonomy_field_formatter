@@ -35,7 +35,6 @@ function taxonomy_field_formatter_field_formatter_info() {
 function taxonomy_field_formatter_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
   $settings = $instance['display'][$view_mode]['settings'];
   $default_view_mode = $settings['view_mode'];
-  $element['#tree'] = TRUE;
 
   $entity_info = entity_get_info('taxonomy_term');
   foreach ($entity_info['view modes'] as $term_view_mode => $data) {
